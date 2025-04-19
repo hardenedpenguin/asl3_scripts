@@ -44,7 +44,7 @@ fi
 echo "Public IP address: $public_ip"
 
 # Modify link.php
-link_file="/var/www/html/link.php"
+link_file="/var/www/html/link.php" # Adjust this path if necessary
 echo "Modifying $link_file..."
 if [ -f "$link_file" ]; then
   if ! sed -i "s/yourpublicip/$public_ip/g" "$link_file"; then
@@ -58,4 +58,8 @@ else
 fi
 
 echo "Script completed."
+echo "
+Important:
+- Ensure that port 8082 is forwarded to your Hamclock device's IP address.
+- If a firewall is running on your Hamclock device, you will need to open port 8082."
 exit 0
