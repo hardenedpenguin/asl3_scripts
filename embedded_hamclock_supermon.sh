@@ -1,6 +1,9 @@
 #!/bin/sh
 #
-# Script to download and apply patch, then get public IP and modify link.php
+# Script to download and apply patch, then get public IP, modify link.php,
+# and handle the webproxy service (systemd only).
+#
+# Copyright (C) 2025 Jory A. Pratt, W5GLE
 #
 
 # Check if the script is run as root
@@ -9,10 +12,43 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-# Download the patch to /tmp
+# Define variables
 patch_url="http://w5gle.us/~anarchy/tools/embedded-hamclock-to-supermon-dashboard.patch"
 patch_file="/tmp/embedded-hamclock-to-supermon-dashboard.patch"
+link_file="/var/www/html/link.php" # Adjust this path if necessary
+service_name="webproxy"
 
+# Function to check if a service is running (systemd)
+is_service_running() {
+  systemctl is-active --quiet "$1"
+}
+
+# Function to stop and disable a service (systemd)
+stop_disable_service() {
+  local svc="$1"
+  echo "Stopping and disabling service: $svc..."
+  if systemctl is-active --quiet "$svc"; then
+    if systemctl stop "$svc"; then
+      echo "Successfully stopped $svc."
+      if systemctl disable "$svc"; then
+        echo "Successfully disabled $svc."
+      else
+        echo "Warning: Failed to disable $svc." >&2
+      fi
+    else
+      echo "Error: Failed to stop $svc." >&2
+    fi
+  else
+    echo "Service '$svc' is not running."
+  fi
+}
+
+# Check for and handle webproxy
+if is_service_running "$service_name"; then
+  stop_disable_service "$service_name"
+fi
+
+# Download the patch to /tmp
 echo "Downloading patch..."
 if ! curl -sLo "$patch_file" "$patch_url"; then
   echo "Error: Failed to download patch." >&2
@@ -44,7 +80,6 @@ fi
 echo "Public IP address: $public_ip"
 
 # Modify link.php
-link_file="/var/www/html/link.php" # Adjust this path if necessary
 echo "Modifying $link_file..."
 if [ -f "$link_file" ]; then
   if ! sed -i "s/yourpublicip/$public_ip/g" "$link_file"; then
