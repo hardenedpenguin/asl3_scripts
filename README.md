@@ -1,32 +1,55 @@
-These scripts can be used in conjunction with asl3 and other applications such as hamclock.
+# ASL3 Scripts
 
-1) Supermon2 Mod
-   
-   If you have grown fond of the Supermon2 and how node info is displayed, we have you covered
-   ```
-   wget https://raw.githubusercontent.com/hardenedpenguin/asl3_scripts/refs/heads/main/supermon2_mod.sh
-   ```
-   Next make script executable so we can run it
-   ```
-   chmod +x supermon2_mode.sh
-   ```
-   The script will download the patch, apply it, open up node_info.ini to be edited, create the cron job and finally cleanup the downloaded patch
-   ```
-   sudo ./supermon2_mod.sh
-   ```
-2) Embedded Hamclock
-   
-   The hamclock script will only patch in support for Hamclock being embedded to Supermon on ASL3+ If you want a script to setup hamclock we have that covered in another repository.
-   It can be found in the install_hamclock repository https://github.com/hardenedpenguin/install_hamclock, must be installed before we patch the embedded portions in.
+These scripts are designed for use with [ASL3 (AllStarLink)](https://www.allstarlink.org/) and can enhance your setup by integrating with applications such as **Supermon** and **Hamclock**.
 
-   ```
-   wget https://raw.githubusercontent.com/hardenedpenguin/asl3_scripts/refs/heads/main/embedded_hamclock_supermon.sh
-   ```
-   Make script exectuable
-   ```
-   chmod +x embedded_hamclock_supermon.sh
-   ```
-   Now run the script
-   ```
-   sudo ./embedded_hamclock_supermon.sh
-   ```
+## 1. Supermon2 Mod
+
+If you’re a fan of Supermon2 and like how node info is displayed, this script is for you.
+
+### 📥 Download the Script
+```bash
+wget https://raw.githubusercontent.com/hardenedpenguin/asl3_scripts/refs/heads/main/supermon2_mod.sh
+```
+
+### 🔧 Make It Executable
+```bash
+chmod +x supermon2_mod.sh
+```
+
+### 🚀 Run the Script
+```bash
+sudo ./supermon2_mod.sh
+```
+
+This script will:
+- Download and apply the patch
+- Open `node_info.ini` for editing
+- Create the necessary cron job
+- Clean up after completion
+
+---
+
+## 2. Embedded Hamclock Support
+
+This script enables Hamclock to be embedded in Supermon (ASL3+). **Note:** It does not install Hamclock—just patches it into Supermon. If you need to install Hamclock first, visit our dedicated [install_hamclock repo](https://github.com/hardenedpenguin/install_hamclock).
+
+### 📥 Download the Script
+```bash
+wget https://raw.githubusercontent.com/hardenedpenguin/asl3_scripts/refs/heads/main/embedded_hamclock_supermon.sh
+```
+
+### 🔧 Make It Executable
+```bash
+chmod +x embedded_hamclock_supermon.sh
+```
+
+### 🚀 Run the Script
+```bash
+sudo ./embedded_hamclock_supermon.sh
+```
+
+---
+
+## 💬 Support
+
+For issues or suggestions, feel free to open an issue or submit a pull request.
