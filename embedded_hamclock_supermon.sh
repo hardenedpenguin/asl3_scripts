@@ -15,7 +15,7 @@ fi
 # Define variables
 patch_url="http://w5gle.us/~anarchy/tools/embedded-hamclock-to-supermon-dashboard.patch"
 patch_file="/tmp/embedded-hamclock-to-supermon-dashboard.patch"
-link_file="/var/www/html/link.php" # Adjust this path if necessary
+link_file="/var/www/html/supermon/link.php"
 service_name="webproxy"
 
 # Function to check if a service is running (systemd)
