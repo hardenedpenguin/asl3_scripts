@@ -1,5 +1,7 @@
 # ASL3 Scripts
+![Supermon2 with Embedded Hamclock](https://github.com/hardenedpenguin/asl3_scripts/blob/main/supermon2_mod%2Bhamclock.png)
 
+---
 These scripts are designed for use with [ASL3 (AllStarLink)](https://www.allstarlink.org/) and can enhance your setup by integrating with applications such as **Supermon** and **Hamclock**.
 
 ## 1. Supermon2 Mod
