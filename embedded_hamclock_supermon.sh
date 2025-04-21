@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Script to download and apply patch, then get public IP, modify link.php,
+# Script to download and apply patch, then get public IPv4, modify link.php,
 # and handle the webproxy service (systemd only).
 #
 # Copyright (C) 2025 Jory A. Pratt, W5GLE
@@ -68,16 +68,16 @@ if ! patch -p1 < "$patch_file"; then
   echo "Error: Failed to apply patch.  Exiting, but attempting IP replacement." >&2
 fi
 
-# Get the public IP address
-echo "Getting public IP address..."
-public_ip=$(curl -s http://ipecho.net/plain)
+# Get the public IPv4 address
+echo "Getting public IPv4 address..."
+public_ip=$(curl -s -4 http://ipecho.net/plain)
 if [ -z "$public_ip" ]; then
-  echo "Error: Failed to get public IP address." >&2
+  echo "Error: Failed to get public IPv4 address." >&2
   echo "Skipping IP address replacement."
   exit 1
 fi
 
-echo "Public IP address: $public_ip"
+echo "Public IPv4 address: $public_ip"
 
 # Modify link.php
 echo "Modifying $link_file..."
