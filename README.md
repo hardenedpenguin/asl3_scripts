@@ -53,5 +53,10 @@ sudo ./embedded_hamclock_supermon.sh
 ---
 
 ## 💬 Support
+If you wish to disable HamClock on your node and prevent it from running when rebooted, as your normal user
+```
+crontab -e
+```
+You can comment out the line and or remove it, this is totally up to you.
 
 For issues or suggestions, feel free to open an issue or submit a pull request.
