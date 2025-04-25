@@ -89,6 +89,8 @@ For users who experience issues accessing the embedded Hamclock dashboard, a rev
 
 After these steps, you should be able to access your embedded Hamclock dashboard through a URL like `http://your_server_ip/hamclock/live.html`.
 
+**Important:** After successfully configuring the reverse proxy, you will need to edit the `/var/www/html/supermon/link.php` file to update the URL that points to your Hamclock interface. Change the URL at the bottom of the page to something like `http://your_server_ip/hamclock/live.html` to ensure it's accessible within Supermon.
+
 ---
 
 ## 💬 Support
