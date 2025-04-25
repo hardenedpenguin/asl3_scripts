@@ -94,9 +94,9 @@ After these steps, you should be able to access your embedded Hamclock dashboard
 ## 💬 Support
 
 If you wish to disable HamClock on your node and prevent it from running when rebooted, as your normal user:
-\`\`\`bash
+```
 crontab -e
-\`\`\`
+```
 You can comment out the line or remove it entirely, depending on your preference.
 
 For issues or suggestions, feel free to open an issue or submit a pull request.
