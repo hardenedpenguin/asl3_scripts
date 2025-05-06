@@ -30,6 +30,13 @@ This script will:
 - Create the necessary cron job
 - Clean up after completion
 
+**Important:** You must edit AutoSky.ini use, the following command to do so
+```
+nano -w /usr/local/bin/AUTOSKY/AutoSky.ini
+```
+You only need one entry for OFILE, comment out the rest. You will simply set your alert.weather.gov county code, this is only used for the clickable link generation in the output.
+Example : OFILE="https://alerts.weather.gov/cap/wwaatmget.php?x=TXC039&y=1" replace TXC039 with your county/state code
+
 ---
 
 ## 2. Embedded Hamclock Support
