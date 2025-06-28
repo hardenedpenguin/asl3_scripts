@@ -5,6 +5,13 @@
 ---
 These scripts are designed for use with [ASL3 (AllStarLink)](https://www.allstarlink.org/) and can enhance your setup by integrating with applications such as **Supermon** and **Hamclock**.
 
+## Important
+
+We have completed the rewrite to supermon2, we have named it supermon-ng. This has the support for hamclock and the supermon2 mod already avaliable in it. Please feel free to check it out via
+```bash
+https://github.com/hardenedpenguin/supermon-ng
+```
+---
 ## 1. Supermon2 Mod
 
 If you’re a fan of Supermon2 and like how node info is displayed, this script is for you.
